@@ -1,6 +1,6 @@
 {
   "name": "intmin-server",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Run static file server anywhere",
   "bin": {
     "minserver": "./bin/minserver"
