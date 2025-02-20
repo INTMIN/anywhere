@@ -11,7 +11,7 @@
     "server",
     "Assets"
   ],
-  "author": "Jackson Tian",
+  "author": "INTMIN",
   "license": "MIT",
   "dependencies": {
     "connect": "^3.6.6",
@@ -24,11 +24,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/JacksonTian/anywhere.git"
+    "url": "git://github.com/INTMIN/anywhere.git"
   },
   "bugs": {
-    "url": "https://github.com/JacksonTian/anywhere/issues"
+    "url": "https://github.com/INTMIN/anywhere/issues"
   },
-  "homepage": "https://github.com/JacksonTian/anywhere",
+  "homepage": "https://github.com/INTMIN/anywhere",
   "files": ["bin", "keys"]
 }
