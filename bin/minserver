@@ -15,7 +15,7 @@ var proxy = require('http-proxy-middleware');
 
 
 var debug = require('debug');
-debug.enable('anywhere');
+debug.enable('minserver');
 
 var exec = require('child_process').exec;
 var spawn = require('child_process').spawn;
@@ -39,16 +39,16 @@ var argv = require("minimist")(process.argv.slice(2), {
 
 if (argv.help) {
   console.log("Usage:");
-  console.log("  anywhere --help // print help information");
-  console.log("  anywhere // 8000 as default port, current folder as root");
-  console.log("  anywhere 8888 // 8888 as port");
-  console.log("  anywhere -p 8989 // 8989 as port");
-  console.log("  anywhere -s // don't open browser");
-  console.log("  anywhere -h localhost // localhost as hostname");
-  console.log("  anywhere -d /home // /home as root");
-  console.log("  anywhere -l // print log");
-  console.log("  anywhere -f // Enable history fallback");
-  console.log("  anywhere --proxy http://localhost:7000/api // Support shorthand URL, webpack.config.js or customize config file");
+  console.log("  minserver --help // print help information");
+  console.log("  minserver // 8000 as default port, current folder as root");
+  console.log("  minserver 8888 // 8888 as port");
+  console.log("  minserver -p 8989 // 8989 as port");
+  console.log("  minserver -s // don't open browser");
+  console.log("  minserver -h localhost // localhost as hostname");
+  console.log("  minserver -d /home // /home as root");
+  console.log("  minserver -l // print log");
+  console.log("  minserver -f // Enable history fallback");
+  console.log("  minserver --proxy http://localhost:7000/api // Support shorthand URL, webpack.config.js or customize config file");
   process.exit(0);
 }
 
@@ -95,7 +95,7 @@ var getIPAddress = function () {
   return ipList[0] || "127.0.0.1";
 };
 
-var log = debug('anywhere');
+var log = debug('minserver');
 
 var app = connect();
 app.use(function (req, res, next) {
@@ -114,9 +114,9 @@ if (argv.fallback !== undefined) {
 app.use(serveStatic(argv.dir, { 'index': ['index.html'] }));
 app.use(serveIndex(argv.dir, { 'icons': true }));
 
-// anywhere --proxy webpack.config.js
-// anywhere --proxy proxy.config.js
-// anywhere --proxy http://localhost:7000/api
+// minserver --proxy webpack.config.js
+// minserver --proxy proxy.config.js
+// minserver --proxy http://localhost:7000/api
 if (argv.proxy) {
   try {
     // if url
@@ -141,11 +141,11 @@ if (argv.proxy) {
   }
 }
 
-// anywhere 8888
-// anywhere -p 8989
-// anywhere 8888 -s // silent
-// anywhere -h localhost
-// anywhere -d /home
+// minserver 8888
+// minserver -p 8989
+// minserver 8888 -s // silent
+// minserver -h localhost
+// minserver -d /home
 var port = parseInt(argv._[0] || argv.port, 10);
 var secure = port + 1;
 
